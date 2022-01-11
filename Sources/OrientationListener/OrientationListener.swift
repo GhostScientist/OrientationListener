@@ -26,6 +26,12 @@ public struct OrientationListener {
         }
     }
     
+    public func startDeviceOrientationUpdates() {
+        motionService.startMotionUpdates { orientation in
+            self.delegate?.didRotateDevice(orientation)
+        }
+    }
+    
     public func stopDeviceOrientationUpdates() {
         motionService.stopMotionUpdates()
     }
