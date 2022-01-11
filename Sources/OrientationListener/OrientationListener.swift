@@ -21,6 +21,7 @@ public struct OrientationListener {
     public func startDeviceOrientationUpdates(_ onChange: @escaping DeviceRotationClosure) {
         motionService.startMotionUpdates { orientation in
             print("Orientation change detected. Calling didRotateDevice on delegate...")
+            onChange(orientation)
             self.delegate?.didRotateDevice(orientation)
         }
     }
