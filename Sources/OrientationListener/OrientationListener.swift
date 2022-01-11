@@ -5,7 +5,7 @@ public protocol OrientationListenerDelegate {
     func didRotateDevice(_ orientation: UIDeviceOrientation)
 }
 
-typealias DeviceRotationClosure = (UIDeviceOrientation) -> Void
+public typealias DeviceRotationClosure = (UIDeviceOrientation) -> Void
 
 public struct OrientationListener {
     public private(set) var text = "Hello, World!"
@@ -18,7 +18,7 @@ public struct OrientationListener {
         motionService = MotionService()
     }
     
-    func startDeviceOrientationUpdates(_ onChange: @escaping DeviceRotationClosure) {
+    public func startDeviceOrientationUpdates(_ onChange: @escaping DeviceRotationClosure) {
         motionService.startMotionUpdates { orientation in
             print("Orientation change detected. Calling didRotateDevice on delegate...")
             self.delegate?.didRotateDevice(orientation)
